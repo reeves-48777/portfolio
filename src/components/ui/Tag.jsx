@@ -1,4 +1,4 @@
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 const Tag = ({ text, colorClass, className, ...props }) => {
   return (

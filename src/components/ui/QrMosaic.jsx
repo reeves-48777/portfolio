@@ -1,4 +1,4 @@
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 // Icônes SVG brutales (carrées, sans arrondis)
 const GithubIcon = () => (

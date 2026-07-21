@@ -1,8 +1,8 @@
-import CrtEffect from './components/CrtEffect';
-import Header from './components/Header';
-import WorkTimeline from './components/WorkTimeline';
-import RndLab from './components/RndLab';
-import Footer from './components/Footer';
+import CrtEffect from './components/effects/CrtEffect';
+import Header from './components/layouts/Header';
+import WorkTimeline from './components/layouts/WorkTimeline';
+import RndLab from './components/layouts/RndLab';
+import Footer from './components/layouts/Footer';
 
 const App = () => {
   return (

@@ -1,6 +1,6 @@
-import WatermarkCard from './WatermarkCard';
-import Shape3DCard from './Shape3DCard'; // <-- Importé ici
-import AsciiFluidCanvas from './AsciiFluidCanvas';
+import WatermarkCard from '../ui/WatermarkCard';
+import Shape3DCard from '../ui/Shape3DCard'; // <-- Importé ici
+import AsciiFluidCanvas from '../../canvas/AsciiFluidCanvas';
 
 const RndLab = () => {
   const projects = [

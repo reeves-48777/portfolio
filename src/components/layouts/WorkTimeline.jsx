@@ -1,10 +1,10 @@
-import Shape3DCard from './Shape3DCard';
-import SectionTitle from './SectionTitle';
-import AsciiFluidCanvas from './AsciiFluidCanvas';
+import Shape3DCard from '../ui/Shape3DCard';
+import SectionTitle from '../ui/SectionTitle';
+import AsciiFluidCanvas from '../../canvas/AsciiFluidCanvas';
 
-import { useThemeStore } from '../store/useThemeStore';
-import { cn } from '../utils/cn';
-import TimelineItem from './TimelineItem';
+import { useThemeStore } from '../../store/useThemeStore';
+import { cn } from '../../utils/cn';
+import TimelineItem from '../ui/TimelineItem';
 
 const WorkTimeline = () => {
   const isDark = useThemeStore((state) => state.isDark());

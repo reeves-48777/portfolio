@@ -1,4 +1,4 @@
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 const SectionTitle = ({ id, title, direction, reverse = false, className, ...props }) => {
   // Gestion de la direction du texte

@@ -1,4 +1,4 @@
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 
 const WatermarkCard = ({ num, title, desc, techs, className, ...props }) => {
   return (

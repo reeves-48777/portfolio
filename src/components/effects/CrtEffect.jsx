@@ -1,10 +1,10 @@
-import { useThemeStore } from "../store/useThemeStore";
-import { cn } from "../utils/cn";
+import { useThemeStore } from "../../store/useThemeStore";
+import { cn } from "../../utils/cn";
 
 const CrtEffect = ({ className, ...props }) => {
   const isDark = useThemeStore((state) => state.isDark());
   // Ajustement de l'opacité et des couleurs selon le thème
-  const scanlineOpacity = isDark ? 0.3 : 0.08;
+  const scanlineOpacity = isDark ? 0.17 : 0.08;
   const vignetteColor = isDark
     ? 'rgba(0, 0, 0, 0.4)'
     : 'rgba(50, 50, 50, 0.3)'; // Gris doux pour le thème clair

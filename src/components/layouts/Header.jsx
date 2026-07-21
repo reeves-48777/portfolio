@@ -1,5 +1,5 @@
-import QrMosaic from './QrMosaic';
-import ThemeToggle from './ThemeToggle';
+import QrMosaic from '../ui/QrMosaic';
+import ThemeToggle from '../ui/ThemeToggle';
 
 const Header = () => {
   return (

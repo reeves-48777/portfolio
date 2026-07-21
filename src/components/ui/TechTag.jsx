@@ -1,4 +1,4 @@
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
 const TechTag = ({ tech, accentColor = "volt" }) => {
   const hoverClasses = accentColor === 'techy'
     ? 'hover:bg-techy hover:text-base hover:border-techy'

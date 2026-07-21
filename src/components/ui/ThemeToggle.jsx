@@ -1,5 +1,5 @@
-import { useThemeStore } from '../store/useThemeStore';
-import { cn } from '../utils/cn';
+import { useThemeStore } from '../../store/useThemeStore';
+import { cn } from '../../utils/cn';
 
 const ThemeToggle = ({ className, ...props }) => {
   const isDark = useThemeStore((state) => state.isDark());

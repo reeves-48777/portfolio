@@ -2,45 +2,10 @@ import { useRef, useMemo, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { EffectComposer, Pixelation } from '@react-three/postprocessing';
 import * as THREE from 'three';
-import { useThemeStore } from '../store/useThemeStore';
+import { useThemeStore } from '../../store/useThemeStore';
 
-// Les shaders GLSL pour le vrai effet Lidar
-const vertexShader = `
-  varying float vViewY;
-  void main() {
-    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-    vViewY = mvPosition.y;
-    gl_PointSize = 2.0 * (10.0 / -mvPosition.z); // Taille des points selon la distance
-    gl_Position = projectionMatrix * mvPosition;
-  }
-`;
-
-const fragmentShader = `
-  uniform float uTime;
-  uniform vec3 uColor;
-  varying float vViewY;
-  void main() {
-    // diamond shape points
-    vec2 uv = gl_PointCoord - vec2(0.5);
-    if (abs(uv.x) + abs(uv.y) > 0.5) discard;
-
-    // --- SCANLINE IN CAMERA SPACE
-    // mod(uTime * vitesse, amplitude_max) - limite_basse
-    float scanY = mod(uTime * 2.0, 4.0) - 2.0;
-    float dist = abs(vViewY - scanY);
-
-    float scan = smoothstep(0.8, 0.0, dist);
-
-    // float coreScan = smoothstep(0.05, 0.0, dist);
-    // float haloScan = smoothstep(0.3, 0.0, dist);
-
-    // Intensité finale
-    // float alpha = 0.15 + haloScan * 0.35 + coreScan * 0.5;
-    float alpha = 0.2 + scan * 0.8;
-
-    gl_FragColor = vec4(uColor, alpha);
-  }
-`;
+import vertexShader from '../../shaders/lidar-vertex.glsl?raw';
+import fragmentShader from '../../shaders/lidar-fragment.glsl?raw';
 
 const WireShape = ({ type, color, variant }) => {
   const ref = useRef();
@@ -111,7 +76,7 @@ const WireShape = ({ type, color, variant }) => {
   );
 };
 
-import { cn } from '../utils/cn';
+import { cn } from '../../utils/cn';
 const Shape3DCard = ({ type = 'cube', label = 'NODE_01', variant = 'solid', className, ...props }) => {
   const isDark = useThemeStore((state) => state.isDark());
 
