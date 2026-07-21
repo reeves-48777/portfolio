@@ -1,0 +1,96 @@
+import Shape3DCard from './Shape3DCard';
+import SectionTitle from './SectionTitle';
+import AsciiFluidCanvas from './AsciiFluidCanvas';
+
+import { useThemeStore } from '../store/useThemeStore';
+import { cn } from '../utils/cn';
+import TimelineItem from './TimelineItem';
+
+const WHITE_FLUID_COLOR = [1.0, 1.0, 1.0];
+const DARK_FUILD_COLOR = [0.0, 0.0, 0.0];
+
+const WorkTimeline = () => {
+  const isDark = useThemeStore((state) => state.isDark());
+  const jobs = [
+    {
+      tag: "CDI",
+      tagColorClass: "bg-techy text-black border-techy", // <-- Vraies classes Tailwind
+      date: "2022 — 2024",
+      company: "PWA",
+      role: "Migration Frontend et Backend & Maintenance",
+      desc: `Migration Frontend AngularJS vers Vue 3,
+      Migration Backend Java 11 vers Java 17,
+      Maintenance de la codebase Legacy (Java11) responsable du parsing des flux V3`,
+      techs: ["Java 11/17", "PostgreSQL", "OracleDB", "Docker", "Vue 3"]
+    },
+    {
+      tag: "CDI",
+      tagColorClass: "bg-techy text-black border-techy", // <-- Vraies classes Tailwind
+      date: "03/2024 — 06/2024",
+      company: "PLEYCE",
+      role: "Maintenance appli de gestion employés",
+      desc: "Maintenance et ajout de fonctionnalités sur l'application de gestion",
+      techs: ["PHP", "EBP"]
+    },
+    {
+      tag: "FREELANCE",
+      tagColorClass: cn("text-black", isDark ? 'bg-accent border-accent' : 'bg-base border-border-base'), // <-- Vraies classes Tailwind
+      date: "06/2024 — 10/2024",
+      company: "PLEYCE",
+      role: "Extranet MyPleyce",
+      desc: "Refonte visuelle et réécriture Extranet Client avec Vue3",
+      techs: ["PHP", "Vue 3", "Typescript", "Javascript"]
+    },
+
+  ];
+
+  return (
+    <section className="mb-32 relative flex flex-col md:flex-row gap-8 md:gap-12">
+
+      {/* RAIL VERTICAL */}
+      <div className="hidden md:block w-20 shrink-0">
+        <div className="sticky top-10 pl-4">
+          <SectionTitle id="0x01" title="WORK_LOGS" direction="vertical" reverse={false} className={cn(isDark ? 'text-accent' : 'text-muted')} />
+        </div>
+      </div>
+
+      <div className="grow grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+        {/* COLONNE 3D */}
+        <div className="hidden md:block">
+          <div className="sticky top-10">
+            <Shape3DCard type="cube" color="#ccff00" label="WORK_NODE キュブ" variant="ghost" />
+            <div className="mt-4 border-2 border-gray-800 p-4 font-mono text-xs text-muted">
+              <div className="flex justify-between mb-2"><span>STATUS</span><span className="text-accent">ACTIVE</span></div>
+              <div className="flex justify-between mb-2"><span>UPTIME</span><span>99.9%</span></div>
+              <div className="flex justify-between"><span>SECTOR</span><span className="text-muted">RHÔNE-ALPES</span></div>
+            </div>
+          </div>
+          <div>
+            <span className='font-byte text-2xl antialiased uppercase'>Tech enthusiast here, <br />I love to push any machine to its limits and learn new things</span>
+          </div>
+        </div>
+
+        {/* COLONNE TIMELINE */}
+        <div className="md:col-span-2 border-2 border-muted p-8 relative overflow-hidden">
+
+          {/* Fond Fluide personnalisé : Jaune volt qui dérive vers le blanc */}
+          <div className={cn("absolute inset-0 z-0 pointer-events-none", isDark ? 'opacity-20' : 'opacity-50')}>
+            <AsciiFluidCanvas
+              className="w-full h-full"
+            />
+          </div>
+
+          <div className="relative z-10">
+            {jobs.map((job, index) => (
+              <TimelineItem key={index} job={job} index={index} isLast={index === jobs.length - 1} />
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default WorkTimeline;

@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    --color-bg: #f4f4f4;
+    --color-panel: #eaeaea;
+    --color-ink: #1a1a1a;
+    --color-line: #ccc;
+    --color-muted: #666;
+    --color-flash: #ff5e00;
+}
+
+.dark {
+    --color-bg: #050505;
+    --color-panel: #0a0a0a;
+    --color-ink: #e0e0e0;
+    --color-line: #333;
+    --color-muted: #888;
+    --color-flash: #ceff00;
+}
+
+@theme {
+    /* Grim colors */
+    --color-volt: #ceff00;
+    --color-techy: #ff5e00;
+
+    --color-base: var(--color-bg);
+    --color-surface: var(--color-panel);
+    --color-content: var(--color-ink);
+    --color-border-base: var(--color-line);
+    --color-muted: var(--color-muted);
+    --color-accent: var(--color-flash);
+
+    /* fonts */
+    --font-display: "Archivo Black", sans-serif;
+    --font-pixel: "DotGothic16", sans-serif;
+    --font-byte: "Bytesized", monospace;
+    --font-mono: "Space Mono", monospace;
+}
+
+
+body {
+    font-family: var(--font-mono);
+    /* light mode by default */
+    background-color: var(--color-base);
+    color: var(--color-content);
+}
+
+/* Texte vertical pour les titres de section */
+.text-vertical {
+    writing-mode: vertical-rl;
+    transform: rotate(90deg);
+    text-orientation: mixed;
+}
