@@ -20,7 +20,7 @@ const RndLab = () => {
       title: "KeyLabs",
       desc: `Simulation de sons de touches de clavier mécaniques
       Possibilité de changer les matériaux des différentes parties du clavier (boîtier, plaque, key caps, switchs, mods)`,
-      techs: ["RUST", "WASM", "REACT", "R3F", "WGSL"]
+      techs: ["#RUST", "#WASM", "#REACT", "#R3F", "#WGSL/WebGPU"]
     },
     {
       num: "03",
@@ -34,7 +34,7 @@ const RndLab = () => {
 
       Le but premier est de comprendre comment ces technos fonctionnent réellement mais aussi de faire un geste pour la planète en recyclant un petit et modeste appareil que j'avais sous la main en tirant parti au maximum de la puissance de calcul qu'il peut offrir
       `,
-      techs: ["RUST", "WASM", "REACT", "R3F", "WGSL"]
+      techs: ["#RUST", "#WASM", "#REACT", "#R3F", "#WGSL/WebGPU"]
     }
   ];
 
