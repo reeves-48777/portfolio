@@ -4349,11 +4349,18 @@ fn fs_main(@builtin(position) fragCoord: vec4<f32>) -> @location(0) vec4<f32> {
   let distMouse = distance(uv, mouse);
   let mouseInfluence = smoothstep(0.4, 0.0, distMouse);
 
-  let gridScale = 45.0;
+  let charPixelSize = 10.0;
+
+  let gridScale = res.y / charPixelSize;
+
   let cell = floor(uv * gridScale);
   let cellUV = fract(uv * gridScale);
 
-  var p = cell * 0.15;
+  /// --- CORRECTION DE BRUIT ---
+  // Si gridScale augmente, le bruit devient trop petit
+  // On va le "compenser" en divisant par l'echelle de référence (45.0)
+  let noiseScale = 45.0 / gridScale;
+  var p = cell * 0.15 * noiseScale;
 
   // --- EFFET VIVANT ---
   // 1. Vitesse accélérée
