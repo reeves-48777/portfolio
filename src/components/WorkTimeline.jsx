@@ -6,9 +6,6 @@ import { useThemeStore } from '../store/useThemeStore';
 import { cn } from '../utils/cn';
 import TimelineItem from './TimelineItem';
 
-const WHITE_FLUID_COLOR = [1.0, 1.0, 1.0];
-const DARK_FUILD_COLOR = [0.0, 0.0, 0.0];
-
 const WorkTimeline = () => {
   const isDark = useThemeStore((state) => state.isDark());
   const jobs = [
@@ -66,9 +63,16 @@ const WorkTimeline = () => {
               <div className="flex justify-between"><span>SECTOR</span><span className="text-muted">RHÔNE-ALPES</span></div>
             </div>
           </div>
-          <div>
-            <span className='font-byte text-2xl antialiased uppercase'>Tech enthusiast here, <br />I love to push any machine to its limits and learn new things</span>
-          </div>
+          <p>
+            <p className='italic font-bold text-sm font-mono text-muted mt-4'>
+              Passionné de tech avec un petit penchant pour l'optimisation poussée et les performances extrêmes.
+              L'idée de pousser un logiciel à son maxiumum est exaltante pour plusieurs raisons.
+              La première c'est d'offrir une expérience premium aux utilisateurs.
+              La deuxième c'est pour gagner en rendement, en effet, plus on optimise, plus la machine est capable.
+              C'est un gain de temps et de puissance de calcul énorme.
+              Je suis touche à tout et j'aime apprendre de nouvelles choses.
+            </p>
+          </p>
         </div>
 
         {/* COLONNE TIMELINE */}
