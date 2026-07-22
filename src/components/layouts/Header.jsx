@@ -1,11 +1,12 @@
 import QrMosaic from '../ui/QrMosaic';
 import ThemeToggle from '../ui/ThemeToggle';
+import { Button } from '../ui/button';
 
 const Header = () => {
   return (
     <header className="mb-32 relative pt-8 font-mono">
-      <div className="dark:text-techy text-sm mb-4 uppercase tracking-widest border-b border-border-base pb-2 inline-block">
-        0x00 // SYSTEM_INIT
+      <div className="mb-4 border-b border-muted pb-2 inline-block">
+        <span className='text-sm uppercase text-muted'>0x00 // SYSTEM_INIT</span>
         <ThemeToggle className="ml-18 lg:ml-32" />
       </div>
 
@@ -21,7 +22,12 @@ const Header = () => {
 
           <div className="flex flex-col justify-between items-start mt-8 border-t border-b border-border-base py-4 w-full">
             <p className="text-lg text-muted mb-4 md:mb-0">
-              <span className="dark:text-volt">&gt;</span> SOFTWARE_ENGINEER <span className="dark:text-techy">//</span> CREATIVE_DEVELOPER <span className="dark:text-volt">//</span> LOW_LEVEL
+              <span className="dark:text-volt">&gt;</span>
+              <span> SOFTWARE_ENGINEER </span>
+              <span className="dark:text-techy">//</span>
+              <span> CREATIVE_DEVELOPER </span>
+              <span className="dark:text-volt">//</span>
+              <span> LOW_LEVEL </span>
             </p>
             <p className="text-sm text-muted uppercase tracking-wider">
               LOCATION: valence & périphérie // FULL_REMOTE
