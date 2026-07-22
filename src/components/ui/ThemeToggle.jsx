@@ -9,7 +9,7 @@ const ThemeToggle = ({ className, ...props }) => {
     <button
       onClick={toggleTheme}
       className={cn(
-        "border-2 border-ink dark:border-accent px-4 py-2 text-xs dark:text-accent font-bold uppercase tracking-widest hover:bg-accent hover:text-base transition-colors",
+        "border-2 border-ink border-accent px-4 py-2 text-xs dark:text-accent font-bold uppercase tracking-widest hover:bg-accent hover:text-base transition-colors",
         className
       )}
       {...props}
