@@ -14,7 +14,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="w-full md:w-auto text-center border-2 border-border-base bg-transparent px-10 py-5 text-lg font-bold uppercase tracking-wider hover:bg-volt hover:text-base hover:border-volt transition-all duration-100"
         >
-          &gt; DOWNLOAD_DATASHEET
+          &gt; DOWNLOAD_CV
         </a>
       </div>
       <div className="mt-12 text-center text-xs text-muted transform rotate-0">
