@@ -14,9 +14,9 @@ const WorkTimeline = () => {
       tagColorClass: "bg-techy text-black border-techy", // <-- Vraies classes Tailwind
       date: "2022 — 2024",
       company: "PWA",
-      role: "Migration Frontend et Backend & Maintenance",
-      desc: `Migration Frontend AngularJS vers Vue 3,
-      Migration Backend Java 11 vers Java 17,
+      role: "Développeur fullstack Java & Vue 3",
+      desc: `Migration du frontend AngularJS vers Vue 3,
+      Migration du backend Java 11 vers Java 17,
       Maintenance de la codebase Legacy (Java11) responsable du parsing des flux V3`,
       techs: ["Java 11/17", "PostgreSQL", "OracleDB", "Docker", "Vue 3"]
     },
@@ -25,8 +25,8 @@ const WorkTimeline = () => {
       tagColorClass: "bg-techy text-black border-techy", // <-- Vraies classes Tailwind
       date: "03/2024 — 06/2024",
       company: "PLEYCE",
-      role: "Maintenance appli de gestion employés",
-      desc: "Maintenance et ajout de fonctionnalités sur l'application de gestion",
+      role: "Développeur fullstack PHP",
+      desc: "Maintenance de l'application de gestion interne",
       techs: ["PHP", "EBP"]
     },
     {
@@ -34,7 +34,7 @@ const WorkTimeline = () => {
       tagColorClass: cn("text-black", isDark ? 'bg-accent border-accent' : 'bg-base border-border-base'), // <-- Vraies classes Tailwind
       date: "06/2024 — 10/2024",
       company: "PLEYCE",
-      role: "Extranet MyPleyce",
+      role: "Développeur fullstack Vue 3",
       desc: "Refonte visuelle et réécriture Extranet Client avec Vue3",
       techs: ["PHP", "Vue 3", "Typescript", "Javascript"]
     },
