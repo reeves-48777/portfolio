@@ -59,19 +59,15 @@ const WorkTimeline = () => {
             <Shape3DCard type="cube" color="#ccff00" label="WORK_NODE キュブ" variant="ghost" />
             <div className="mt-4 border-2 border-gray-800 p-4 font-mono text-xs text-muted">
               <div className="flex justify-between mb-2"><span>STATUS</span><span className="text-accent">ACTIVE</span></div>
-              <div className="flex justify-between mb-2"><span>UPTIME</span><span>99.9%</span></div>
+              <div className="flex justify-between mb-2"><span>AVAIL.</span><span className='font-bold text-techy'>ASAP</span></div>
               <div className="flex justify-between"><span>SECTOR</span><span className="text-muted">RHÔNE-ALPES</span></div>
             </div>
           </div>
-          <p>
-            <p className='italic font-bold text-sm font-mono text-muted mt-4'>
-              Passionné de tech avec un petit penchant pour l'optimisation poussée et les performances extrêmes.
-              L'idée de pousser un logiciel à son maxiumum est exaltante pour plusieurs raisons.
-              La première c'est d'offrir une expérience premium aux utilisateurs.
-              La deuxième c'est pour gagner en rendement, en effet, plus on optimise, plus la machine est capable.
-              C'est un gain de temps et de puissance de calcul énorme.
-              Je suis touche à tout et j'aime apprendre de nouvelles choses.
-            </p>
+          <p className='italic font-bold text-md font-mono text-muted mt-4'>
+            Ingénieur logiciel et touche-à-tout, mon obsession principale est l'optimisation et la maximisation des performances
+            J'aime explorer toute la chaîne,
+            de l'architecture de protocoles réseau décentralisés (Rust/QUIC) à l'expérimentation front-end poussée (WebGPU).
+            Ces dernières années, j'ai concilié l'éducation de mon jeune fils avec le développement intensif de projets de R&D personnels.
           </p>
         </div>
 
