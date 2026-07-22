@@ -14,7 +14,7 @@ const LinkedinIcon = () => (
 );
 
 const QrMosaic = ({ className, ...props }) => {
-  const githubUrl = "https://github.com/ton-pseudo";
+  const githubUrl = "https://github.com/reeves-48777";
   const linkedinUrl = "https://www.linkedin.com/in/thomas-durand26";
 
   // L'API avec ecc=H (Haute correction d'erreur) pour pouvoir masquer le centre
@@ -25,7 +25,7 @@ const QrMosaic = ({ className, ...props }) => {
     <div className={cn("grid grid-cols-2 gap-2 md:gap-4 w-full max-w-45 md:max-w-55", className)}>
 
       {/* Cellule 1 : GitHub QR (Haut Gauche) */}
-      <div className="relative w-full aspect-square bg-volt p-2 border-2 border-volt group hover:scale-110 transition-transform duration-120">
+      <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="relative w-full aspect-square bg-volt p-2 border-2 border-volt group hover:scale-110 transition-transform duration-120">
         <img
           src={ghQr}
           alt="QR Code GitHub"
@@ -38,7 +38,7 @@ const QrMosaic = ({ className, ...props }) => {
             <GithubIcon />
           </div>
         </div>
-      </div>
+      </a>
 
       {/* Cellule 2 : Data placeholder (Haut Droite) */}
       <div className="w-full aspect-square border-2 border-gray-800 flex flex-col items-center justify-center p-2 group hover:border-volt transition-colors">
@@ -63,7 +63,7 @@ const QrMosaic = ({ className, ...props }) => {
       </div>
 
       {/* Cellule 4 : LinkedIn QR (Bas Droite) */}
-      <div className="relative w-full aspect-square bg-techy p-2 border-2 border-techy group hover:scale-110 transition-transform duration-120">
+      <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="relative w-full aspect-square bg-techy p-2 border-2 border-techy group hover:scale-110 transition-transform duration-120">
         <img
           src={liQr}
           alt="QR Code LinkedIn"
@@ -76,9 +76,9 @@ const QrMosaic = ({ className, ...props }) => {
             <LinkedinIcon />
           </div>
         </div>
-      </div>
+      </a>
 
-    </div>
+    </div >
   );
 };
 
