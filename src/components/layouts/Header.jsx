@@ -21,7 +21,7 @@ const Header = () => {
 
           <div className="flex flex-col justify-between items-start mt-8 border-t border-b border-border-base py-4 w-full">
             <p className="text-lg text-muted mb-4 md:mb-0">
-              <span className="dark:text-volt">&gt;</span> FULLSTACK_DEV <span className="dark:text-techy">//</span> JAVA <span className="dark:text-volt">//</span> REACT
+              <span className="dark:text-volt">&gt;</span> SOFTWARE_ENGINEER <span className="dark:text-techy">//</span> R&D <span className="dark:text-volt">//</span> LOW_LEVEL
             </p>
             <p className="text-sm text-muted uppercase tracking-wider">
               LOCATION: valence & périphérie // FULL_REMOTE
