@@ -12,7 +12,7 @@ const App = () => {
 
       {/* <WgslFluidBackground /> */}
       {/* Effet CRT par-dessus le fond (z-40/50) */}
-      <CrtEffect />
+      <CrtEffect className="no-print" />
 
       {/* Contenu principal (z-10) */}
       {/* On ajoute un fond semi-transparent (bg-dark/80) sur le conteneur pour que le texte soit lisible */}

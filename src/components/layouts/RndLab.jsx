@@ -53,9 +53,9 @@ const RndLab = () => {
         ))}
 
         {/* On insère la carte 3D au milieu */}
-        <Shape3DCard type="ico" color="#ccff00" label="イコスfイヤー" variant='lidar' />
-        <div></div>
-        <AsciiFluidCanvas className='border border-border-base' />
+        <Shape3DCard type="ico" color="#ccff00" label="イコスfイヤー" variant='lidar' className="no-print" />
+        <div className='no-print'></div>
+        <AsciiFluidCanvas className='border border-border-base no-print' />
       </div>
     </section>
   );

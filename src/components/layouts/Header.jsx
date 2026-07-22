@@ -4,7 +4,7 @@ import ThemeToggle from '../ui/ThemeToggle';
 const Header = () => {
   return (
     <header className="mb-32 relative pt-8 font-mono">
-      <div className="dark:text-techy text-sm mb-4 uppercase tracking-widest border-b border-border-base pb-2 inline-block">
+      <div className="dark:text-techy text-sm mb-4 uppercase tracking-widest border-b border-border-base pb-2 inline-block no-print">
         0x00 // SYSTEM_INIT
         <ThemeToggle className="ml-18 lg:ml-32" />
       </div>
@@ -33,7 +33,7 @@ const Header = () => {
 
         {/* Colonne de droite : Mosaïque QR Code */}
         <div className="w-full md:w-auto flex justify-center md:justify-end mt-8 md:mt-0">
-          <QrMosaic />
+          <QrMosaic className="no-print" />
         </div>
 
       </div>

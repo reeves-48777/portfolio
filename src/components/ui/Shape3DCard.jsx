@@ -91,7 +91,7 @@ const Shape3DCard = ({ type = 'cube', label = 'NODE_01', variant = 'solid', clas
   const containerStyle = isGhost ? { borderColor: activeColor } : {};
 
   return (
-    <div className={cn("relative w-full aspect-square", containerClass)} style={containerStyle}>
+    <div className={cn("relative w-full aspect-square", containerClass, className)} style={containerStyle}>
       {/* On cache les coins techy si c'est ghost pour garder le côté épuré */}
       {!isGhost && (
         <>

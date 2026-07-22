@@ -53,3 +53,24 @@ body {
     transform: rotate(90deg);
     text-orientation: mixed;
 }
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    @page {
+        margin: 1cm;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    body {
+        font-family: var(--font-mono);
+        background-color: var(--color-base);
+        color: var(--color-content);
+    }
+}
