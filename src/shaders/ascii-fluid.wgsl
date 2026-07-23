@@ -7,6 +7,7 @@ struct Uniforms {
   colorR: f32,
   colorG: f32,
   colorB: f32,
+  octaves: f32,
 };
 
 @group(0) @binding(0) var<uniform> uniforms: Uniforms;
@@ -56,7 +57,7 @@ fn fs_main(@builtin(position) fragCoord: vec4<f32>) -> @location(0) vec4<f32> {
 
   p = p + (mouse - uv) * mouseInfluence * 6.0;
 
-  let n = fbm(p);
+  let n = fbm(p, u32(uniforms.octaves));
 
   // Contraste adapté (2.0 au lieu de 2.5 pour un peu plus de présence)
   let contrastN = pow(max(0.0, n), 3.0);
