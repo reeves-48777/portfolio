@@ -6,6 +6,12 @@ import noiseCode from '../shaders/noise.wgsl?raw';
 
 const shaderCode = `${noiseCode}\n${mainCode}`;
 
+const isLowPowerDevice = () => {
+  if (typeof window === "undefined") return false;
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  const isSmallScreen = window.innerWidth < 768;
+  return isTouch || isSmallScreen;
+}
 
 const createAsciiAtlas = () => {
   const canvas = document.createElement('canvas');
@@ -50,9 +56,18 @@ const AsciiFluidCanvas = ({ className = "" }) => {
     let animationFrameId;
     let destroyed = false;
     let resizeObserver;
+    let intersectionObserver;
     let device, context;
 
-    const uniformData = new Float32Array(8);
+    let isVisible = true;
+    let isTabVisible = document.visibilityState === 'visible';
+    const shouldRender = () => isVisible && isTabVisible;
+
+    const lowPower = isLowPowerDevice();
+    const maxDpr = lowPower ? 1 : 2;
+    const octaves = lowPower ? 3.0 : 5.0;
+
+    const uniformData = new Float32Array(9);
 
     const setCanvasSize = () => {
       const rect = container.getBoundingClientRect();
@@ -67,6 +82,13 @@ const AsciiFluidCanvas = ({ className = "" }) => {
       mouseRef.current.x = (e.clientX - rect.left) / rect.width;
       mouseRef.current.y = (e.clientY - rect.top) / rect.height;
     };
+
+    const handleVisibilityChange = () => {
+      isTabVisible = document.visibilityState === 'visible';
+      if (shouldRender() && !animationFrameId) {
+        animationFrameId = requestAnimationFrame(render);
+      }
+    }
 
     const initWebGPU = async () => {
       if (!navigator.gpu) return;
@@ -102,7 +124,7 @@ const AsciiFluidCanvas = ({ className = "" }) => {
       });
 
       const uniformBuffer = device.createBuffer({
-        size: 32,
+        size: 48,
         usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST
       });
       const uniformBindGroup = device.createBindGroup({
@@ -115,14 +137,33 @@ const AsciiFluidCanvas = ({ className = "" }) => {
       });
 
       window.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('visibilitychange', handleVisibilityChange);
 
       resizeObserver = new ResizeObserver(setCanvasSize);
       resizeObserver.observe(container);
+
+      intersectionObserver = new IntersectionObserver(
+        (entries) => {
+          isVisible = entries[0]?.isIntersecting ?? true;
+          if (shouldRender() && !animationFrameId) {
+            animationFrameId = requestAnimationFrame(render);
+          }
+        },
+        {
+          threshold: 0
+        }
+      );
+      intersectionObserver.observe(container);
 
       const start = performance.now();
 
       const render = () => {
         if (destroyed) return;
+
+        if (!shouldRender()) {
+          animationFrameId = null;
+          return;
+        }
 
         const time = (performance.now() - start) / 1000;
 
@@ -134,6 +175,7 @@ const AsciiFluidCanvas = ({ className = "" }) => {
         uniformData[5] = targetColor.current.r;
         uniformData[6] = targetColor.current.g;
         uniformData[7] = targetColor.current.b;
+        uniformData[8] = octaves;
 
         device.queue.writeBuffer(uniformBuffer, 0, uniformData.buffer);
 
