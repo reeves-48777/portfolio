@@ -18,12 +18,6 @@ const WireShape = ({ type, color, variant }) => {
     uColor: { value: new THREE.Color(color) }
   }), [color]);
 
-  useEffect(() => {
-    if (matRef.current) {
-      matRef.current.uniforms.uColor.value.set(color);
-    }
-  }, [color]);
-
   useFrame((state, delta) => {
     uniforms.uTime.value = state.clock.elapsedTime;
 
