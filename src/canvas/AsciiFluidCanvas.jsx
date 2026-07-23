@@ -30,7 +30,7 @@ const createAsciiAtlas = () => {
 
 import { cn } from "../utils/cn";
 const AsciiFluidCanvas = ({ className = "" }) => {
-  const isDark = useThemeStore((state) => state.isDark);
+  const isDark = useThemeStore((state) => state.isDark());
 
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
