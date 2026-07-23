@@ -74,8 +74,7 @@ const WorkTimeline = () => {
         {/* COLONNE TIMELINE */}
         <div className="md:col-span-2 border-2 border-muted p-8 relative overflow-hidden">
 
-          {/* Fond Fluide personnalisé : Jaune volt qui dérive vers le blanc */}
-          <div className={cn("absolute inset-0 z-0 pointer-events-none", isDark ? 'opacity-20' : 'opacity-50')}>
+          <div className={cn("absolute inset-0 z-0 pointer-events-none opacity-20")}>
             <AsciiFluidCanvas
               className="w-full h-full"
             />
