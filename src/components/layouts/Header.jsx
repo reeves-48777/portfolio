@@ -4,9 +4,9 @@ import ThemeToggle from '../ui/ThemeToggle';
 const Header = () => {
   return (
     <header className="mb-32 relative pt-8 font-mono">
-      <div className="dark:text-techy text-sm mb-4 uppercase tracking-widest border-b border-border-base pb-2 inline-block no-print">
+      <div className="dark:text-techy text-sm mb-4 uppercase tracking-widest border-b border-border-base pb-2 inline-block no-print max-sm:flex max-sm:justify-between">
         0x00 // SYSTEM_INIT
-        <ThemeToggle className="ml-18 lg:ml-32" />
+        <ThemeToggle className="ml-18 lg:ml-32 max-sm:min-w-48" />
       </div>
 
 
