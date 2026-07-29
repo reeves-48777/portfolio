@@ -10,7 +10,9 @@ const RndLab = () => {
       className: "hover:bg-techy hover:border-techy",
       desc: `Implémentation décentralisée du web (work in progress)
       Le but du projet est de comprendre comment fonctionne le web.
-      Pour cela j'ai décidé de recréer l'écosystème en entier (http, navigateur, js engine, html)
+      Pour cela j'ai décidé de recréer l'écosystème en entier de manière simplifiée:
+      (http, navigateur, js engine, html)
+
       Features MVP :
         - Format de fichier pour les pages statiques (HTML -> Shard)
         - Navigateur (Ravn)
