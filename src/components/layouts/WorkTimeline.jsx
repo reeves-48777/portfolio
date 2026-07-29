@@ -64,10 +64,16 @@ const WorkTimeline = () => {
             </div>
           </div>
           <p className='italic font-bold text-md font-mono text-muted mt-4'>
-            Ingénieur logiciel et touche-à-tout, mon obsession principale est l'optimisation et la maximisation des performances.<br />
-            J'aime explorer toute la chaîne,
-            de l'architecture de protocoles réseau décentralisés (Rust/QUIC) à l'expérimentation front-end poussée (WebGPU).<br />
-            Ces dernières années, j'ai concilié l'éducation de mon jeune fils avec le développement intensif de projets de R&D personnels.
+            Ingénieur logiciel et touche-à-
+            tout, mon obsession principale est
+            l'optimisation et la maximisation
+            des performances.
+            <br /><br />
+            Ces dernières années, j'ai
+            concilié l'éducation de mon jeune
+            fils avec le développement
+            intensif de projets de R&D
+            personnels.
           </p>
         </div>
 
