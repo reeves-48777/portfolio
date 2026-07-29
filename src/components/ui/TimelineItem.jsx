@@ -18,7 +18,7 @@ const TimelineItem = ({ job, index, isLast }) => {
             {job.role}
           </h3>
 
-          <p className="text-muted-text mb-6 max-w-md ml-auto">&gt; {job.desc}</p>
+          <p className="text-muted-text mb-6 max-w-md ml-auto text-justify">&gt; {job.desc}</p>
           <div className="flex gap-2 flex-wrap text-xs justify-end">
             {job.techs.map(tech => <TechTag key={tech} tech={tech} />)}
           </div>
