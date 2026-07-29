@@ -25,7 +25,7 @@ const QrMosaic = ({ className, ...props }) => {
     <div className={cn("grid grid-cols-2 gap-2 md:gap-4 w-full max-w-45 md:max-w-55", className)}>
 
       {/* Cellule 1 : GitHub QR (Haut Gauche) */}
-      <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="relative w-full aspect-square bg-volt p-2 border-2 border-volt group hover:scale-110 transition-transform duration-120">
+      <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="relative size-26 aspect-square bg-volt p-2 border-2 border-volt group hover:scale-110 transition-transform duration-120">
         <img
           src={ghQr}
           alt="QR Code GitHub"
@@ -41,7 +41,7 @@ const QrMosaic = ({ className, ...props }) => {
       </a>
 
       {/* Cellule 2 : Data placeholder (Haut Droite) */}
-      <div className="w-full aspect-square border-2 border-gray-800 flex flex-col items-center justify-center p-2 group hover:border-volt transition-colors">
+      <div className="size-26 aspect-square border-2 border-gray-800 flex flex-col items-center justify-center p-2 group hover:border-volt transition-colors">
         <div className="text-volt font-display text-xl md:text-2xl">0x01</div>
         <div className="text-[8px] md:text-[10px] text-gray-500 mt-1 text-center uppercase">// Github<br />_access</div>
         <div className="mt-2 flex flex-wrap gap-0.5 justify-center">
@@ -52,7 +52,7 @@ const QrMosaic = ({ className, ...props }) => {
       </div>
 
       {/* Cellule 3 : Data placeholder (Bas Gauche) */}
-      <div className="w-full aspect-square border-2 border-gray-800 flex flex-col items-center justify-center p-2 group hover:border-techy transition-colors">
+      <div className="size-26 aspect-square border-2 border-gray-800 flex flex-col items-center justify-center p-2 group hover:border-techy transition-colors">
         <div className="text-techy font-display text-xl md:text-2xl">0x02</div>
         <div className="text-[8px] md:text-[10px] text-gray-500 mt-1 text-center uppercase">// LinkedIn<br />_access</div>
         <div className="mt-2 flex flex-wrap gap-0.5 justify-center">
@@ -63,7 +63,7 @@ const QrMosaic = ({ className, ...props }) => {
       </div>
 
       {/* Cellule 4 : LinkedIn QR (Bas Droite) */}
-      <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="relative w-full aspect-square bg-techy p-2 border-2 border-techy group hover:scale-110 transition-transform duration-120">
+      <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="relative size-26 aspect-square bg-techy p-2 border-2 border-techy group hover:scale-110 transition-transform duration-120">
         <img
           src={liQr}
           alt="QR Code LinkedIn"
