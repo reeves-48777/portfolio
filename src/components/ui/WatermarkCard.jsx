@@ -24,7 +24,7 @@ const WatermarkCard = ({ num, title, desc, techs, className, ...props }) => {
           <p key={index} className={cn("text-sm mb-2 opacity-80 grow text-justify", index === 0 ? 'font-extrabold underline' : '')}>{line}</p>
         )}
 
-        <div className="flex flex-wrap gap-3 text-xs font-bold italic uppercase tracking-wider opacity-70">
+        <div className="flex flex-wrap gap-3 text-xs font-black italic uppercase tracking-wider opacity-70">
           {techs.map(tech => <span key={tech}>{tech}</span>)}
         </div>
       </div>
