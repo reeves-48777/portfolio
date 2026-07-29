@@ -1,11 +1,7 @@
 import { cn } from "../../utils/cn";
-const TechTag = ({ tech, accentColor = "volt" }) => {
-  const hoverClasses = accentColor === 'techy'
-    ? 'hover:bg-techy hover:text-base hover:border-techy'
-    : 'hover:bg-volt hover:text-base hover:border-volt';
-
+const TechTag = ({ tech }) => {
   return (
-    <span className={cn("border-2 border-border-base px-3 py-1 text-xs text-content transition-colors", hoverClasses)}>
+    <span className={cn("border-2 border-border-base px-3 py-1 text-xs text-content transition-colors hover:border-accent hover:bg-accent hover:font-bold")}>
       {tech}
     </span>
   );
