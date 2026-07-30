@@ -12,11 +12,11 @@ const App = () => {
 
       {/* <WgslFluidBackground /> */}
       {/* Effet CRT par-dessus le fond (z-40/50) */}
-      <CrtEffect className="no-print" />
+      <CrtEffect />
 
       {/* Contenu principal (z-10) */}
       {/* On ajoute un fond semi-transparent (bg-dark/80) sur le conteneur pour que le texte soit lisible */}
-      <div className="relative z-10 max-w-dvw lg:max-w-7xl mx-auto px-6 py-20 min-h-dvh">
+      <div className="relative z-10 max-w-dvw lg:max-w-7xl mx-auto px-6 py-8 md:py-20 min-h-dvh">
         <Header />
         <WorkTimeline />
         <RndLab />
