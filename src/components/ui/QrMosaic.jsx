@@ -22,7 +22,7 @@ const QrMosaic = ({ className, ...props }) => {
   const liQr = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=050505&bgcolor=ff5e00&ecc=H&data=${linkedinUrl}`;
 
   return (
-    <div className={cn("grid grid-cols-2 gap-2 md:gap-4 w-full max-w-45 md:max-w-55", className)}>
+    <div className={cn("grid grid-cols-2 gap-2 md:gap-4 w-full max-w-55", className)}>
 
       {/* Cellule 1 : GitHub QR (Haut Gauche) */}
       <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="relative size-26 aspect-square bg-volt p-2 border-2 border-volt group hover:scale-110 transition-transform duration-120">
