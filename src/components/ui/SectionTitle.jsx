@@ -6,8 +6,8 @@ const SectionTitle = ({ id, title, direction = "horizontal", reverse = false, cl
 
   return (
     <div className={cn(
-      "flex flex-row items-center gap-4 mb-4",
-      isVertical && "md:[writing-mode:vertical-rl] md:items-start gap-2",
+      "flex flex-wrap md:flex-nowrap md:flex-col items-center gap-4 mb-4",
+      isVertical && "md:flex-row md:[writing-mode:vertical-rl] md:items-start gap-2",
       reverse && "rotate-180",
       className
     )}
