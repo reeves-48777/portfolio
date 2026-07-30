@@ -7,7 +7,6 @@ import { cn } from '../../utils/cn';
 import TimelineItem from '../ui/TimelineItem';
 
 const WorkTimeline = () => {
-  const isDark = useThemeStore((state) => state.isDark());
   const jobs = [
     {
       tag: "CDI",
@@ -31,7 +30,7 @@ const WorkTimeline = () => {
     },
     {
       tag: "FREELANCE",
-      tagColorClass: cn("text-black", isDark ? 'bg-accent border-accent' : 'bg-base border-border-base'), // <-- Vraies classes Tailwind
+      tagColorClass: "text-black dark:bg-accent dark:border-accent bg-base border-border-base", // <-- Vraies classes Tailwind
       date: "06/2024 — 10/2024",
       company: "PLEYCE",
       role: "Développeur fullstack Vue 3",
@@ -45,9 +44,9 @@ const WorkTimeline = () => {
     <section className="mb-32 relative flex flex-col md:flex-row gap-8 md:gap-12">
 
       {/* RAIL VERTICAL */}
-      <div className="hidden md:block w-20 shrink-0">
-        <div className="sticky top-10 pl-4">
-          <SectionTitle id="0x01" title="WORK_LOGS" direction="vertical" reverse={false} className={cn(isDark ? 'text-accent' : 'text-muted')} />
+      <div className="w-20 shrink-0">
+        <div>
+          <SectionTitle id="0x01" title="WORK_LOGS" direction="vertical" className="text-muted dark:text-accent text-6xl" />
         </div>
       </div>
 
@@ -55,7 +54,7 @@ const WorkTimeline = () => {
 
         {/* COLONNE 3D */}
         <div className="hidden md:block">
-          <div className="sticky top-10">
+          <div>
             <Shape3DCard type="cube" color="#ccff00" label="WORK_NODE キュブ" variant="ghost" />
             <div className="mt-4 border-2 border-gray-800 p-4 font-mono text-xs text-muted">
               <div className="flex justify-between mb-2"><span>STATUS</span><span className="text-accent">ACTIVE</span></div>
