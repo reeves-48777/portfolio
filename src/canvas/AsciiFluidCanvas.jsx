@@ -72,9 +72,24 @@ const AsciiFluidCanvas = ({ className = "" }) => {
     const setCanvasSize = () => {
       const rect = container.getBoundingClientRect();
       const dpr = Math.min(window.devicePixelRatio, 2);
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
+
+      const w = Math.max(1, rect.width * dpr);
+      const h = Math.max(1, rect.height * dpr);
+
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w;
+        canvas.height = h;
+      }
     };
+
+    let resizeTimeout;
+    const debouncedResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(setCanvasSize, 100);
+    };
+
+    resizeObserver = new ResizeObserver(debouncedResize);
+    resizeObserver.observe(container);
     setCanvasSize();
 
     const handleMouseMove = (e) => {
@@ -139,9 +154,6 @@ const AsciiFluidCanvas = ({ className = "" }) => {
       window.addEventListener('mousemove', handleMouseMove);
       document.addEventListener('visibilitychange', handleVisibilityChange);
 
-      resizeObserver = new ResizeObserver(setCanvasSize);
-      resizeObserver.observe(container);
-
       intersectionObserver = new IntersectionObserver(
         (entries) => {
           isVisible = entries[0]?.isIntersecting ?? true;
@@ -165,6 +177,12 @@ const AsciiFluidCanvas = ({ className = "" }) => {
           return;
         }
 
+        if (canvas.width === 0 || canvas.height === 0) {
+          animationFrameId = requestAnimationFrame(render);
+          shouldRender;
+          return;
+        }
+
         const time = (performance.now() - start) / 1000;
 
         uniformData[0] = time;
@@ -180,7 +198,14 @@ const AsciiFluidCanvas = ({ className = "" }) => {
         device.queue.writeBuffer(uniformBuffer, 0, uniformData.buffer);
 
         const commandEncoder = device.createCommandEncoder();
-        const textureView = context.getCurrentTexture().createView();
+
+        let textureView;
+        try {
+          textureView = context.getCurrentTexture().createView();
+        } catch (e) {
+          animationFrameId = requestAnimationFrame(render);
+          return;
+        }
 
         const renderPass = commandEncoder.beginRenderPass({
           colorAttachments: [{
